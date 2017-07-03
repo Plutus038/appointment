@@ -7,45 +7,119 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## First run the composer update to get the dependencies
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+```
+composer update
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Give 777 permission for storage folder and recursive folders in root path
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+```
+sudo chmod 777 -R 'storage FolderPath'
+```
 
-## Learning Laravel
+## For database configuration, create a new database in your phpmyadmin with name called appointment, then change the password & user name in .env file (Then run this migration command)
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+```
+php artisan migrate
+```
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+## Run this command to initial data setup data in project folder (Refer this file database/seeds/DatabaseSeeder.php)
+Command & uncommand the query to get the static record
 
-## Laravel Sponsors
+```
+php artisan db:seed
+```
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
+ - Base Url :  http://localhost/appointment/public/api
 
-- **[Vehikl](http://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Styde](https://styde.net)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+1. Add Doctor :
+Method – POST
+Input Type – Raw Json
+URL - /doctor
+	Request input :
+	{
+		"name" : "Vimala",
+		"email" : "Vimala.a@gmail.com",
+		"department" : "Dentist",
+		"gender" : "F",
+		"available_start_time" : "2017-05-22 20:02:42",
+		"available_end_time" : "2017-05-22 20:02:42"
+	}
+	Response output:
+	{
+		"id": 1,
+		"uuid": "9b9bc657-de6d-4000-ab2b-bb879f744e98",
+		"name": "Vimala",
+		"email": "Vimala.a@gmail.com",
+		"department": "Dentist",
+		"gender": "F",
+		"available_start_time": "2017-05-22 20:02:42",
+		"available_end_time": "2017-05-22 20:02:42",
+		"message": "Doctor information added successfully"
+	}
+2. Get all the doctors list :
+Method – GET
+URL - /doctors
+	Respone output :
+	[
+		{
+			"uuid": "cadc5b19-7358-43d4-a83e-7356ce49d72e",
+			"name": "Vimala"
+		},
+		{
+			"uuid": "4b4a3d8b-3b66-4669-b1d0-b46312ecae1b",
+			"name": "Vimala"
+		},
+		{
+			"uuid": "9faa3011-4cba-4e07-976e-8b744371ad3d",
+			"name": "Vimala"
+		}
+	]
+3. Create appointment for a doctor : (Get doctor uuid from previous service)
+Method – POST
+Input Type – Raw Json
+URL - /appointment
+            ( Create a multiple request for a doctor with same time – if you accept one request, remaining will be cancelled, one hour will be blocked for this request )
+	Request input :
+	{
+		"name" : "Guru",
+		"doctor_uuid" : "9b9bc657-de6d-4000-ab2b-bb879f744e98",
+		"reason" : "Head ache",
+		"age" : "21",
+		"gender" : "F",
+		"appointment_time" : "2017-07-27 23:38:01",
+		"status" : "REQUEST"
+	}
+	Response Output :
+	{
+		"id": 1,
+		"uuid": "ffe877de-8530-4b57-96ec-8f94ff440e4c",
+		"name": "Guru",
+		"reason": "Head ache",
+		"age": "21",
+		"gender": "F",
+		"appointment_time": "2017-07-27 23:38:01",
+		"status": "REQUEST",
+		"message": "Appointment created successfully"
+	}
+4. Update a appointment status : (Get appointment uuid from, after successfull creation of appointment)
+Method – PUT
+Input Type – Raw Json
+URL - /doctor/f363c070-a752-4c0b-85ff-2c3e58f4e6e6  (doctor/{doctor_uuid})
+	Request input :
+	{
+		"appointment_id" : "67ac42f6-e27c-4070-8759-a484df8f25d0",
+		"status" : "ACCEPTED"
+	}
+	Request input :
+	{
+		"name" : "Guru",
+		"doctor_uuid" : "4b4a3d8b-3b66-4669-b1d0-b46312ecae1b",
+		"reason" : "Head ache",
+		"age" : "21",
+		"gender" : "F",
+		"appointment_time" : "2017-06-27 23:38:01",
+		"status" : "REQUEST"
+	}
