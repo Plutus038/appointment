@@ -1,0 +1,203 @@
+.btw_add_form .form-group {
+	min-height:72px;
+}
+
+.floatright{
+	float: right;
+}
+
+.profilepicture{
+	width: 64px;
+ }
+
+ .plusicon{
+ 	float: right;
+    color: green;
+    margin-right: 47px;
+    margin-bottom: 15px;
+    font-size: 20px;
+ }
+
+ .box.box-info .login {
+    min-height: 202px;
+}
+
+.loginformheight{
+	padding: 20px;
+}
+.resetpasswordchangecolor{
+	text-align: center;	
+}
+.resetpassword{
+	margin-top: 106px;
+
+}
+.resetformdistance{
+	padding: 23px;
+}
+.editpageimageview{
+	width: 50px;
+    height: 50px;
+    float: right;
+}
+.viewdriverform{
+	margin-left: 300px;
+	margin-top: 27px;
+}
+.viewdriver{
+
+	font-weight: 400;
+}
+.btw_view_driver{
+	min-height:52px;
+}
+
+.btw_view_driver .box-primary label {
+	width: 200px;
+}
+
+.btw_view_driver .box-primary img {
+	float: left;
+}
+
+.btw_view_driver .box-header {
+    background-color: aliceblue;
+    color: black;
+    text-align: center;
+}
+.btw_view_driver .backbutton{
+	float: right;
+    margin-right: 42px;
+    margin-top: 17px;
+}
+
+.btw_add_form .box-primary .usererror{
+	color: red;
+}
+
+.main-header .user-header .changepassword{
+	color: white;
+    font-size: 14px;
+    margin-top:10px;
+}
+.main-header .user-header .changepassword:hover{
+    background: none;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.changepassword .box-body{
+	height: 500px;
+    margin-top: 54px;
+}
+
+#changepasswordform .error {
+      color: red;
+  }
+.driver-box {
+    margin-bottom: 80px;
+}
+span.select2-selection.select2-selection--single {
+    min-height: 33px;
+    border-radius: 0;
+}
+.card-size{
+    font-size: 40px;
+    padding-top: 20px;
+}
+.card-image{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.card-cus-name {
+    font-size: 19px;
+    text-indent: 15px;
+}
+.card-number {
+    font-size: 24px;
+    text-align: center;
+    word-spacing: 16px;
+    letter-spacing: 6px;
+}
+.card-expiry {
+    display: inline;
+}
+.card-expiry-container {
+    position: relative;
+    top: 40px;
+    text-indent: 15px;
+}
+.card-provider{
+    position: relative;
+    left: 11px;
+}
+
+.add-button{
+    float: right;
+}
+
+/*
+ * Page: Lock Screen
+ * -----------------
+ */
+/* ADD THIS CLASS TO THE <BODY> TAG */
+.lockscreen {
+    background: #d2d6de;
+}
+.lockscreen-logo {
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+.lockscreen-logo a {
+    color: #444;
+}
+.lockscreen-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+/* User name [optional] */
+.lockscreen .lockscreen-name {
+    text-align: center;
+    font-weight: 600;
+}
+/* Will contain the image and the sign in form */
+.lockscreen-item {
+    border-radius: 4px;
+    padding: 0;
+    background: #fff;
+    position: relative;
+    margin: 10px auto 30px auto;
+    width: 290px;
+}
+/* User image */
+.lockscreen-image {
+    border-radius: 50%;
+    position: absolute;
+    left: -10px;
+    top: -25px;
+    background: #fff;
+    padding: 5px;
+    z-index: 10;
+}
+.lockscreen-image > img {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+/* Contains the password input and the login button */
+.lockscreen-credentials {
+    margin-left: 70px;
+}
+.lockscreen-credentials .form-control {
+    border: 0;
+}
+.lockscreen-credentials .btn {
+    background-color: #fff;
+    border: 0;
+    padding: 0 10px;
+}
+.lockscreen-footer {
+    margin-top: 10px;
+}
