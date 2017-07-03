@@ -35,9 +35,13 @@ php artisan db:seed
 # Base Url :  [http://localhost/appointment/public/api]
 
 **Add Doctor :**
+
 >Method – POST
+
 >Input Type – Raw Json
+
 >URL - [/doctor] (http://localhost/appointment/public/api/doctor)
+
 ```
 	Request input :
 	{
@@ -62,8 +66,11 @@ php artisan db:seed
 	}
 ```
 **Get all the doctors list :**
+
 >Method – GET
+
 >URL - [/doctors] (http://localhost/appointment/public/api/doctors)
+
 ```
 	Respone output :
 	[
@@ -81,9 +88,12 @@ php artisan db:seed
 		}
 	]
 ```
-**Create appointment for a doctor : (Get doctor uuid from previous service)##
+**Create appointment for a doctor : (Get doctor uuid from previous service)**
+
 >Method – POST
+
 >Input Type – Raw Json
+
 >URL - [/appointment] (http://localhost/appointment/public/api/appointment)
             ( Create a multiple request for a doctor with same time – if you accept one request, remaining will be cancelled, one hour will be blocked for this request )
 ```
@@ -110,9 +120,12 @@ php artisan db:seed
 		"message": "Appointment created successfully"
 	}
 ```
-**Update a appointment status : (Get appointment uuid from, after successfull creation of appointment)##
+**Update a appointment status : (Get appointment uuid from, after successfull creation of appointment)**
+
 >Method – PUT
+
 >Input Type – Raw Json
+
 >URL - (doctor/{doctor_uuid})
           [/doctor/f363c070-a752-4c0b-85ff-2c3e58f4e6e6] (http://localhost/appointment/public/api/doctor/f363c070-a752-4c0b-85ff-2c3e58f4e6e6)
 ```
