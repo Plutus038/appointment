@@ -145,3 +145,11 @@ php artisan db:seed
 		"status" : "REQUEST"
 	}
 ```
+
+**For backend**
+
+ - Doctors list (http://localhost/appointment/public/doctor)
+
+ - Hit doctor name in the doctors list to get appointment list for the particular doctor
+
+ - You have an option for timezone selection for a appointment list
