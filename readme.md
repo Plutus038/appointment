@@ -32,12 +32,13 @@ Command & uncommand the query to get the static record
 php artisan db:seed
 ```
 
- - Base Url :  http://localhost/appointment/public/api
+# Base Url :  [http://localhost/appointment/public/api]
 
-1. Add Doctor :
-Method – POST
-Input Type – Raw Json
-URL - /doctor
+##Add Doctor :
+####Method – POST
+####Input Type – Raw Json
+####URL - [/doctor] (http://localhost/appointment/public/api/doctor)
+```
 	Request input :
 	{
 		"name" : "Vimala",
@@ -59,9 +60,11 @@ URL - /doctor
 		"available_end_time": "2017-05-22 20:02:42",
 		"message": "Doctor information added successfully"
 	}
-2. Get all the doctors list :
-Method – GET
-URL - /doctors
+```
+##Get all the doctors list :
+####Method – GET
+####URL - [/doctors] (http://localhost/appointment/public/api/doctors)
+```
 	Respone output :
 	[
 		{
@@ -77,11 +80,13 @@ URL - /doctors
 			"name": "Vimala"
 		}
 	]
-3. Create appointment for a doctor : (Get doctor uuid from previous service)
-Method – POST
-Input Type – Raw Json
-URL - /appointment
+```
+##Create appointment for a doctor : (Get doctor uuid from previous service)
+####Method – POST
+####Input Type – Raw Json
+####URL - [/appointment] (http://localhost/appointment/public/api/appointment)
             ( Create a multiple request for a doctor with same time – if you accept one request, remaining will be cancelled, one hour will be blocked for this request )
+            ```
 	Request input :
 	{
 		"name" : "Guru",
@@ -104,10 +109,13 @@ URL - /appointment
 		"status": "REQUEST",
 		"message": "Appointment created successfully"
 	}
-4. Update a appointment status : (Get appointment uuid from, after successfull creation of appointment)
-Method – PUT
-Input Type – Raw Json
-URL - /doctor/f363c070-a752-4c0b-85ff-2c3e58f4e6e6  (doctor/{doctor_uuid})
+	```
+##Update a appointment status : (Get appointment uuid from, after successfull creation of appointment)
+####Method – PUT
+####Input Type – Raw Json
+####URL - (doctor/{doctor_uuid})
+          [/doctor/f363c070-a752-4c0b-85ff-2c3e58f4e6e6] (http://localhost/appointment/public/api/doctor/f363c070-a752-4c0b-85ff-2c3e58f4e6e6)
+```
 	Request input :
 	{
 		"appointment_id" : "67ac42f6-e27c-4070-8759-a484df8f25d0",
@@ -123,3 +131,4 @@ URL - /doctor/f363c070-a752-4c0b-85ff-2c3e58f4e6e6  (doctor/{doctor_uuid})
 		"appointment_time" : "2017-06-27 23:38:01",
 		"status" : "REQUEST"
 	}
+```
